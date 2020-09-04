@@ -10,7 +10,7 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
     var client = new Client(config);
     return client.login().then(function (token) {
         //console.log(token);
-        return client.promise.get('/api/hub/v2/libraries/OrganisationalStructure').then(console.log);
+        return client.promise.get('/api/hub/v2/libraries/OrganisationalStructure');//.then(console.log);
         //return client.promisifyStream(client.get(host + '/api/hub/v2/libraries/GeographicOrganisationStructure')).then(console.log);
         //return client.promisifyStream(client.get(host + '/api/hub/v2/employees/logs?startingFromLogId=41000&maxNumberOfLogs=1000')).then(console.log);
         //return client.promisifyStream(client.get(host + '/api/hub/v2/positions')).then(console.log);
