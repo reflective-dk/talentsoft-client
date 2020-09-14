@@ -13,6 +13,8 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
         //console.log(token);
         //return client.promisifyStream(client.get('/api/hub/v2/libraries/GeographicOrganisationStructure')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/libraries/RegulationName')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/libraries/logs?startingFromLogId=20000&maxNumberOfLogs=1000')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/libraryTypes')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/libraries/RegulationRegion')).then(console.log);
         
         //return client.promisifyStream(client.get('/api/hub/v2/libraries/WorkingTime')).then(console.log);
@@ -20,20 +22,26 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
         
         //return client.get('/api/hub/v2/libraries/OrganisationalStructure').pipe(process.stdout);//.then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/employees/logs?startingFromLogId=42830&maxNumberOfLogs=100')).then(console.log);
-        //return client.promisifyStream(client.get('/api/hub/v2/positions')).then(console.log);
-        //return client.promisifyStream(client.get(host + '/api/hub/v2/positions/consult_generic_01')).then(console.log);
-        //return client.promisifyStream(client.get(host + '/api/hub/v2/positionassignments/underdirektoer_11')).then(console.log);
-        //return client.promisifyStream(client.get(host + '/api/hub/v2/employees/1000907')).then(console.log);
+        return client.promisifyStream(client.get('/api/hub/v2/positions/logs?startingFromLogId=0&maxNumberOfLogs=1000')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/positions/consult_generic_01')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/positionassignments/underdirektoer_11')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/employees/1000907')).then(console.log);
         
+        //return client.promise.getLastestLogId('/api/hub/v2/positions/logs').then(console.log);
+        //return client.promise.getLastestLogId('/api/hub/v2/libraries/logs').then(console.log);
         //return client.promise.getLastestLogId('/api/hub/v2/employees/logs').then(console.log);
-        var results = [];
+        /*var results = [], first;
         var stream = through2.obj(function (obj, enc, callback) {
+            if (!first) {
+                first = obj.logId;
+            }
             results.push(obj.logId);
             callback();
         });
-        return client.getLogs('/api/hub/v2/employees/logs', 41200, stream).then(function (latestLogId) {
+        return client.getLogs('/api/hub/v2/positions/logs', 0, stream).then(function (latestLogId) {
+            console.log('first', first);
             console.log('collected', results.length);
             console.log('latestLogId', latestLogId);
-        });
+        });*/
     });
 });
