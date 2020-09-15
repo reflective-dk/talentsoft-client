@@ -22,7 +22,7 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
         
         //return client.get('/api/hub/v2/libraries/OrganisationalStructure').pipe(process.stdout);//.then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/employees/logs?startingFromLogId=42830&maxNumberOfLogs=100')).then(console.log);
-        return client.promisifyStream(client.get('/api/hub/v2/positions/logs?startingFromLogId=0&maxNumberOfLogs=1000')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/positions/logs?startingFromLogId=0&maxNumberOfLogs=1000')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/positions/consult_generic_01')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/positionassignments/underdirektoer_11')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/employees/1000907')).then(console.log);
@@ -30,7 +30,7 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
         //return client.promise.getLastestLogId('/api/hub/v2/positions/logs').then(console.log);
         //return client.promise.getLastestLogId('/api/hub/v2/libraries/logs').then(console.log);
         //return client.promise.getLastestLogId('/api/hub/v2/employees/logs').then(console.log);
-        /*var results = [], first;
+        var results = [], first;
         var stream = through2.obj(function (obj, enc, callback) {
             if (!first) {
                 first = obj.logId;
@@ -38,10 +38,10 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
             results.push(obj.logId);
             callback();
         });
-        return client.getLogs('/api/hub/v2/positions/logs', 0, stream).then(function (latestLogId) {
+        return client.getLogs('/api/hub/v2/positions/logs', 32594, stream).then(function (latestLogId) {
             console.log('first', first);
             console.log('collected', results.length);
             console.log('latestLogId', latestLogId);
-        });*/
+        });
     });
 });
