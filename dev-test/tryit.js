@@ -21,7 +21,7 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
         //return client.promisifyStream(client.get('/api/hub/v2/positions/structure')).then(console.log);
         
         //return client.get('/api/hub/v2/libraries/OrganisationalStructure').pipe(process.stdout);//.then(console.log);
-        //return client.promisifyStream(client.get('/api/hub/v2/employees/logs?startingFromLogId=42830&maxNumberOfLogs=100')).then(console.log);
+        //return client.promisifyStream(client.get('/api/hub/v2/employees/logs?startingFromLogId=55557&maxNumberOfLogs=100')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/positions/logs?startingFromLogId=0&maxNumberOfLogs=1000')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/positions/consult_generic_01')).then(console.log);
         //return client.promisifyStream(client.get('/api/hub/v2/positionassignments/underdirektoer_11')).then(console.log);
@@ -38,10 +38,10 @@ return config.resolve(path.resolve(__dirname + '/config.yml'))
             results.push(obj.logId);
             callback();
         });
-        return client.getLogs('/api/hub/v2/positions/logs', 32594, stream).then(function (latestLogId) {
+        return client.getLogs('/api/hub/v2/positions/logs', 32592, stream).then(function (result) {
             console.log('first', first);
-            console.log('collected', results.length);
-            console.log('latestLogId', latestLogId);
+            console.log('collected', result.collected);
+            console.log('nextLogId', result.nextLogId);
         });
     });
 });
